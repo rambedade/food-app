@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function RecipeCard({ recipe }) {
   return (
-    <div className="bg-white w-75 rounded-lg shadow-md overflow-hidden w-100 h-85 flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl duration-300 border border-gray-200">
+    <div className="bg-white  rounded-lg shadow-md overflow-hidden w-100 h-85 flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl duration-300 border border-gray-200">
       {/* Image Section */}
       <img 
         src={recipe.image} 
