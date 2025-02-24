@@ -71,7 +71,7 @@ function Home() {
       </div>
 
       {/* Featured Images Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-6 mx-auto ">
+      <div className="grid grid-cols-1 ml-8 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-6 mx-auto ">
         {[
           {
             name: "Healthy",
