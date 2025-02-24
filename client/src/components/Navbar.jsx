@@ -6,38 +6,33 @@ function Navbar() {
   const { user, logout } = useContext(AuthContext);
 
   return (
-    <nav className=" bg-[#ae7eec]    shadow-lg p-4 text-white-900 flex justify-between items-center px-8">
+    <nav className="bg-white shadow-md p-4 flex justify-between items-center">
       {/* Logo */}
-      <Link 
-        to="/" 
-        className="text-3xl font-extrabold tracking-wide hover:text-yellow-500 transition-all duration-300"
-      >
-        Recipe<span className="text-yellow-300">App</span>
+      <Link to="/" className="text-2xl font-bold text-black">
+        Recipe<span className="text-yellow-500">App</span>
       </Link>
 
       {/* Navigation Links */}
-      <div className="hidden md:flex gap-8 text-lg font-medium">
-        <Link to="/" className="hover:text-yellow-500 transition-all text-2xl duration-200">Home</Link>
-        <Link to="/#" className="hover:text-yellow-500 transition-all text-2xl duration-200">About</Link>
-        <Link to="/#" className="hover:text-yellow-500 transition-all text-2xl duration-200">Recipes</Link>
-        {user && <Link to="/saved" className="hover:text-yellow-300 transition-all duration-200">Saved Recipes</Link>}
+      <div className="hidden md:flex gap-6">
+        <Link to="/" className="hover:text-yellow-500 transition-all duration-200">Home</Link>
+        <Link to="/#" className="hover:text-yellow-500 transition-all duration-200">About</Link>
+        <Link to="/#" className="hover:text-yellow-500 transition-all duration-200">Recipes</Link>
+        {user && <Link to="/saved-recipes" className="hover:text-yellow-500 transition-all duration-200">Saved Recipes</Link>}
       </div>
 
       {/* Authentication Buttons */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-4">
         {user ? (
           <button
             onClick={logout}
-            className="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-lg font-semibold transition-all duration-300 shadow-md"
+            className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-md text-white font-semibold transition-all duration-200"
           >
             Logout
           </button>
         ) : (
           <>
-            <Link to="/login" className="hover:text-yellow-500 text-lg font-medium transition-all duration-200">Login</Link>
-            <Link to="/register" className="bg-yellow-300 hover:bg-yellow-600 text-black px-5 py-2 rounded-lg font-semibold transition-all duration-300 shadow-md">
-              Register
-            </Link>
+            <Link to="/login" className="hover:text-yellow-500 transition-all duration-200">Login</Link>
+            <Link to="/register" className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition-all duration-200">Register</Link>
           </>
         )}
       </div>

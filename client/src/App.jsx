@@ -18,6 +18,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/saved" element={<SavedRecipes />} />
+          <Route path="/saved-recipes" element={<SavedRecipes />} />
         </Routes>
       </Router>
     </AuthProvider>
