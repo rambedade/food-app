@@ -1,16 +1,25 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
+const cors = require("cors");
+
 
 dotenv.config();
 const app = express();
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(
+    cors({
+      credentials: true,
+      origin: ["http://localhost:5173", "https://foodrecipe-one-peach.vercel.app"], // ✅ Allow frontend URLs
+    })
+  );
 app.use(express.json());
 app.use(cookieParser());
 
 connectDB();
+
+
+
 
 app.get("/", (req, res) => {
     res.send("Welcome to the Recipe API!");

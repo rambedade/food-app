@@ -2,6 +2,8 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../config";
+
 
 function SavedRecipes() {
   const { user } = useContext(AuthContext);
@@ -14,7 +16,7 @@ function SavedRecipes() {
       if (!user) return; // If user is not logged in, do nothing
 
       try {
-        const response = await axios.get("http://localhost:5000/api/recipes/saved", {
+        const response = await axios.get(`${BASE_URL}/api/recipes/saved`, {
           withCredentials: true,
         });
 

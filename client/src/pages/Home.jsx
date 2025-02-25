@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import RecipeList from "../components/RecipeList";
 import { CiSearch } from "react-icons/ci";
+import { BASE_URL } from "../config";
+
 
 function Home() {
   const [query, setQuery] = useState("");
@@ -14,27 +16,33 @@ function Home() {
       setError("Please enter a search term.");
       return;
     }
-
+  
     setLoading(true);
     setError("");
-
+  
     try {
+      console.log(`Fetching from: ${BASE_URL}/api/recipes/search?query=${query}`);
+  
       const response = await axios.get(
-        `http://localhost:5000/api/recipes/search?query=${query}`
+        `${BASE_URL}/api/recipes/search?query=${query}`,
+        { withCredentials: true } // Ensure credentials are sent if needed
       );
-
+  
+      console.log("API Response:", response.data); // ✅ Log response
+  
       if (!response.data || response.data.length === 0) {
         setError("No recipes found.");
       }
-
+  
       setRecipes(response.data);
     } catch (err) {
-      console.error("Error fetching recipes:", err);
+      console.error("Error fetching recipes:", err.response || err.message);
       setError("Error fetching recipes. Please check the console.");
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="p-4">

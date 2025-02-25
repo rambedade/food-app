@@ -3,6 +3,8 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import { FaRegHeart, FaHeart } from "react-icons/fa"; // Heart icons for Save
+import { BASE_URL } from "../config";
+
 
 function RecipeCard({ recipe }) {
   const { user } = useContext(AuthContext);
@@ -15,7 +17,7 @@ function RecipeCard({ recipe }) {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/recipes/save", {
+      await axios.post(`${BASE_URL}/api/recipes/save`, {
         recipeId: recipe.id,
         title: recipe.title,
         image: recipe.image,
