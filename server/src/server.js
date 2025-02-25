@@ -8,10 +8,7 @@ const cors = require("cors");
 dotenv.config();
 const app = express();
 app.use(
-    cors({
-      credentials: true,
-      origin: ["http://localhost:5173", "https://foodrecipe-one-peach.vercel.app"], // ✅ Allow frontend URLs
-    })
+    cors()
   );
 app.use(express.json());
 app.use(cookieParser());

@@ -1,1 +1,1 @@
-export const BASE_URL = "https://food-app-1-b0sd.onrender.com";
+export const BASE_URL = "https://food-app-2-git1.onrender.com";

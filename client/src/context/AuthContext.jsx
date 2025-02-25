@@ -16,7 +16,7 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  // ✅ Login Function (No Navigation Here)
+  //  Login Function (No Navigation Here)
   const login = async (email, password) => {
     setLoading(true);
     try {
@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
       localStorage.setItem("token", res.data.token);
       axios.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`;
       setUser({ loggedIn: true });
-      return true; // ✅ Return success flag
+      return true; // Return success flag
     } catch (err) {
       console.error("Login failed:", err.response?.data?.message || err.message);
       return false;

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-import { FaRegHeart, FaHeart } from "react-icons/fa"; // Heart icons for Save
+import { FaRegHeart, FaHeart } from "react-icons/fa"; 
 import { BASE_URL } from "../config";
 
 
